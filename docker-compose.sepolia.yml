@@ -1,0 +1,51 @@
+services:
+  keeper-base-sepolia:
+    restart: always
+    build: .
+    env_file:
+      - .env
+      - .env.base-sepolia
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_v3",
+        "--network",
+        "base:sepolia:node",
+      ]
+
+  keeper-arb-sepolia:
+    restart: always
+    build: .
+    env_file:
+      - .env
+      - .env.arbitrum-sepolia
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_v3",
+        "--network",
+        "arbitrum:sepolia:alchemy",
+      ]
+
+  keeper-eth-sepolia:
+    restart: always
+    build: .
+    env_file:
+      - .env
+      - .env.ethereum-sepolia
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_bfp",
+        "--network",
+        "ethereum:sepolia:node",
+      ]

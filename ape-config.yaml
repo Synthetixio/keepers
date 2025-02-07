@@ -1,0 +1,64 @@
+name: keepers
+
+plugins:
+  - name: optimism
+  - name: base
+  - name: arbitrum
+  - name: alchemy
+  - name: foundry
+
+optimism:
+  default_network: sepolia
+  sepolia:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+  mainnet:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+
+base:
+  default_network: sepolia
+  sepolia:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+  mainnet:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+
+arbitrum:
+  default_network: sepolia
+  sepolia:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+  mainnet:
+    default_provider: alchemy
+    transaction_acceptance_timeout: 120
+
+node:
+  ethereum:
+    mainnet:
+      uri: $NETWORK_1_RPC
+    sepolia:
+      uri: $NETWORK_11155111_RPC
+  base:
+    mainnet:
+      uri: $NETWORK_8453_RPC
+    sepolia:
+      uri: $NETWORK_84532_RPC
+  arbitrum:
+    mainnet:
+      uri: $NETWORK_42161_RPC
+    sepolia:
+      uri: $NETWORK_421614_RPC
+  optimism:
+    mainnet:
+      uri: $NETWORK_10_RPC
+    sepolia:
+      uri: $NETWORK_420_RPC
+
+foundry:
+  block_time: 2
+  fork:
+    base:
+      mainnet:
+        upstream_provider: alchemy

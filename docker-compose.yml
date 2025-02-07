@@ -1,0 +1,45 @@
+services:
+  keeper-base-mainnet:
+    restart: always
+    build: .
+    env_file: .env.base
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_v3",
+        "--network",
+        "base:mainnet:alchemy",
+      ]
+
+  keeper-arb-mainnet:
+    restart: always
+    build: .
+    env_file: .env.arbitrum
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_v3",
+        "--network",
+        "arbitrum:mainnet:alchemy",
+      ]
+
+  keeper-eth-mainnet:
+    restart: always
+    build: .
+    env_file: .env.ethereum
+    entrypoint:
+      [
+        "uv",
+        "run",
+        "silverback",
+        "run",
+        "perps_bfp",
+        "--network",
+        "ethereum:mainnet:node",
+      ]
