@@ -43,3 +43,20 @@ uv run silverback run main:app --network base:sepolia:alchemy --runner silverbac
 ```
 
 Note that you must have the [uv](https://github.com/astral-sh/uv) package manager installed in order to run this, otherwise you can install the `pyproject.toml` file using your preferred environment and package manager
+
+## Publishing images
+
+Images can be built and published to a registry using the following commands. Before publishing, ensure that you have a github token with the `read:packages` and `write:packages` scopes and can authenticate to the `ghcr.io` registry.
+
+```bash
+# Make sure you are authenticated to the github registry
+docker login ghcr.io
+
+# Build the image
+docker build . --platform linux/arm64 -t ghcr.io/synthetixio/keeper:0.1.0-test
+docker build . --platform linux/arm64 -t ghcr.io/synthetixio/keeper:latest
+
+# Publish the image to a package on github
+docker build . --platform linux/arm64 -t ghcr.io/synthetixio/keeper:0.1.0-test
+docker build . --platform linux/arm64 -t ghcr.io/synthetixio/keeper:latest
+```
